@@ -20,16 +20,13 @@ import com.google.firebase.storage.FirebaseStorage
 class ListaitemsClosetActivity : AppCompatActivity() {
 
     val fDatabase = FirebaseDatabase.getInstance()
-
+    val activity = this
     lateinit var btListarItemsChecarCodigo : Button
     lateinit var etListarItemsInserirCodigo : EditText
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_item_closet)
-
-
 
         /// Recicle Viewer
         val userPrefs  = UserPreferences(applicationContext)
@@ -51,7 +48,7 @@ class ListaitemsClosetActivity : AppCompatActivity() {
                         arrListIds.add( ids.value.toString() )
                     }
 
-                    val adapter = CardItemClosetAdapter(arrListIds)
+                    val adapter = CardItemClosetAdapter(arrListIds, activity)
                     recyclerview.adapter = adapter
                 }
             }
@@ -68,11 +65,16 @@ class ListaitemsClosetActivity : AppCompatActivity() {
         etListarItemsInserirCodigo = findViewById(R.id.etListaItemInserirCodigo)
     }
 
+    fun VisualizarListaItem(itemClosetId : String){
+        val intent = Intent(this, VisualizaritemActivity::class.java).apply{}
+        intent.putExtra("itemClosetId", itemClosetId)
+        startActivity(intent)
+    }
+
     fun CadastrarNovoItem(v: View){
         val intent = Intent(this, CadastrarItemActivity::class.java).apply{}
         startActivity(intent)
     }
-
 
     fun VisualizarItemCodigo(v: View){
         var itemClosetId = etListarItemsInserirCodigo.text.toString()

@@ -1,6 +1,6 @@
 package adapters
 
-import android.content.Context
+import android.app.Activity
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
@@ -12,10 +12,8 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mycloset.ItemCloset
-import com.example.mycloset.ItemClosetId
 import com.example.mycloset.R
 import com.example.mycloset.VisualizaritemActivity
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -23,10 +21,9 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.storage.FirebaseStorage
 import java.util.*
-import kotlin.collections.ArrayList
 
 
-class CardItemClosetAdapter(private val itemList : ArrayList<String>) : RecyclerView.Adapter<CardItemClosetAdapter.ViewHolder>() {
+class CardItemClosetAdapter(private val itemList : ArrayList<String>, val activity : Activity) : RecyclerView.Adapter<CardItemClosetAdapter.ViewHolder>() {
 
     var fStorage = FirebaseStorage.getInstance().getReference()
     var fDatabase = FirebaseDatabase.getInstance().getReference()
@@ -77,13 +74,13 @@ class CardItemClosetAdapter(private val itemList : ArrayList<String>) : Recycler
             child(item).
             addValueEventListener(databaseListener)
 
-        /*
+
         holder.cardInCell.setOnClickListener{
-            val intent = Intent(myIntent, VisualizaritemActivity::class.java).apply{}
+            val intent = Intent(activity, VisualizaritemActivity::class.java).apply{}
             intent.putExtra("itemClosetId", holder.itemClosetId)
-            startActivity(intent)
+            activity.startActivity(intent)
         }
-        */
+
     }
 
     // return the number of the items in the list
