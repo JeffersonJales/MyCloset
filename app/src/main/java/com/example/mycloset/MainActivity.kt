@@ -1,5 +1,6 @@
 package com.example.mycloset
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -23,6 +24,19 @@ class MainActivity : AppCompatActivity() {
 
         loginEmail = findViewById(R.id.etLoginEmail)
         loginPassword = findViewById(R.id.etLoginPassword)
+
+        /// GET INFO FROM CREATE ACCOUNT
+        var email = intent.getStringExtra("email")
+        var password = intent.getStringExtra("password")
+        if(email != null){
+            loginEmail.setText(email.toString())
+            loginPassword.setText(password.toString())
+        }
+    }
+
+    fun criarConta(v: View){
+        val intent = Intent(this, CreateUserActivity::class.java).apply{}
+        startActivity(intent)
     }
 
     fun checarLoginSenha(v: View){
