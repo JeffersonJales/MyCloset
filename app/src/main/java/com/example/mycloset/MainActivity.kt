@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                 val userPrefs = UserPreferences(applicationContext)
                 userPrefs.SavePreferences(user?.uid.toString(), login)
 
-                val intent = Intent(this, CadastrarItemActivity::class.java).apply{}
+                val intent = Intent(this, ListaitemsClosetActivity::class.java).apply{}
                 startActivity(intent)
             }
             else{
