@@ -45,15 +45,20 @@ class MainActivity : AppCompatActivity() {
 
         fba.signInWithEmailAndPassword(login, password).addOnCompleteListener{
             if(it.isSuccessful){
-                Toast.makeText(applicationContext, "Deu certo login Firebase", Toast.LENGTH_LONG).show()
+                //Toast.makeText(applicationContext, "Deu certo login Firebase", Toast.LENGTH_LONG).show()
                 val user = fba.currentUser
                 val userVerified = user?.isEmailVerified
                 Log.v("FBA", user?.uid.toString())
                 Log.v("FBA", userVerified.toString())
+
+               /*
                 if(userVerified == false) {
                     user?.sendEmailVerification()
                     Log.v("FBA", "Email de verificação enviado")
-                }
+                }*/
+
+                val intent = Intent(this, ListaitemsClosetActivity::class.java).apply{}
+                startActivity(intent)
             }
             else{
                 Toast.makeText(applicationContext, "SENHA OU LOGIN ERRADO", Toast.LENGTH_LONG).show()
