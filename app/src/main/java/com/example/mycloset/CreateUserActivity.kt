@@ -100,6 +100,8 @@ class CreateUserActivity : AppCompatActivity() {
                 var path = "foto_perfil_usuario"
                 var fotoPath = "foto_perfil_${uid}.png"
                 bitmap.compress(Bitmap.CompressFormat.PNG,75, dados)
+
+                /// Colocando no Storage a imagem
                 val storage = fbs.getReference().child(path).child(fotoPath)
                 storage.putBytes(dados.toByteArray())
 
