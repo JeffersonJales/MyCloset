@@ -21,6 +21,8 @@ import com.google.firebase.storage.FirebaseStorage
 import java.io.ByteArrayOutputStream
 
 class CreateUserActivity : AppCompatActivity() {
+    
+    var fotoCarregada = false
 
     /// FIREBASE REFERENCE
     val fba = FirebaseAuth.getInstance()
@@ -38,7 +40,6 @@ class CreateUserActivity : AppCompatActivity() {
     lateinit var btCarregarGaleria : Button
     lateinit var btCadastrar : Button
 
-    var fotoCarregada = false
     override fun onCreate(savedInstanceState: Bundle??) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_user)
@@ -61,6 +62,7 @@ class CreateUserActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if(requestCode == 1 && resultCode == RESULT_OK){
+            fotoCarregada = true
             var bitmap =   data?.extras?.get("data") as Bitmap
             imagePhoto.setImageBitmap(bitmap)
         }
@@ -70,7 +72,7 @@ class CreateUserActivity : AppCompatActivity() {
 
         /// Checar todos os campos foram preenchidos
         if(!(CheckTextNull(editTextCellphone) && CheckTextNull(editTextAdress) &&
-        CheckTextNull(editTextEmail) && CheckTextNull(editTextPassword))) {
+        CheckTextNull(editTextEmail) && CheckTextNull(editTextPassword) && fotoCarregada)) {
             Toast.makeText(
                 applicationContext, "Informações necessárias para cadastro",
                 Toast.LENGTH_LONG
