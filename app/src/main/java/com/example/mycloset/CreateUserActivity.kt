@@ -72,7 +72,7 @@ class CreateUserActivity : AppCompatActivity() {
     fun TentarCadastro(){
         /// Checar todos os campos foram preenchidos
         if(!(CheckTextNull(editTextCellphone) && CheckTextNull(editTextAdress) &&
-        CheckTextNull(editTextEmail) && CheckTextNull(editTextPassword) && fotoCarregada)) {
+                    CheckTextNull(editTextEmail) && CheckTextNull(editTextPassword) && fotoCarregada)) {
             Toast.makeText(
                 applicationContext, "Informações necessárias para cadastro",
                 Toast.LENGTH_LONG
@@ -90,7 +90,6 @@ class CreateUserActivity : AppCompatActivity() {
                 var user = fba.currentUser
                 var uid = user?.uid.toString()
 
-
                 /// Cadastrar Foto no storage
                 var dados = ByteArrayOutputStream()
                 var bitmap = Bitmap.createBitmap(imagePhoto.width, imagePhoto.height, Bitmap.Config.ARGB_8888)
@@ -100,6 +99,8 @@ class CreateUserActivity : AppCompatActivity() {
                 var path = "foto_perfil_usuario"
                 var fotoPath = "foto_perfil_${uid}.png"
                 bitmap.compress(Bitmap.CompressFormat.PNG,75, dados)
+
+                /// Colocando no Storage a imagem
                 val storage = fbs.getReference().child(path).child(fotoPath)
                 storage.putBytes(dados.toByteArray())
 

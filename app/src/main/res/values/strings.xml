@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">MyCloset</string>
+    <string-array name="categories">
+        <item>Blusa</item>
+        <item>Regata</item>
+        <item>Short</item>
+        <item>Bermuda</item>
+        <item>Calça</item>
+        <item>Saia</item>
+        <item>Vestido</item>
+        <item>Top</item>
+        <item>Cropped</item>
+        <item>Boné</item>
+        <item>Gorro</item>
+        <item>Moletom</item>
+        <item>Casaco</item>
+        <item>Tênis</item>
+        <item>Sapato</item>
+        <item>Roupa Íntima (Fem)</item>
+        <item>Roupa Íntima (Masc)</item>
+        <item>Outros</item>
+    </string-array>
 </resources>

@@ -78,4 +78,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    fun redefinirSenha(v: View)
+    {
+        val login =  loginEmail.text.toString()
+        fba.sendPasswordResetEmail(login)
+    }
 }

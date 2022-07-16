@@ -13,7 +13,7 @@ class ListaitemsClosetActivity : AppCompatActivity() {
         setContentView(R.layout.activity_list_item_closet)
     }
 
-    fun CadastrarNovoItem(v: View){
+    fun RegisterClosetItem(v: View){
         val intent = Intent(this, CadastrarItemActivity::class.java).apply{}
         startActivity(intent)
     }
