@@ -18,7 +18,7 @@ data class UserPreferencesData(var uid : String = "", var email : String = "") :
 class UserPreferences {
     val sharedFilename = "uid_email"
     val sharedKey = "usuario_info"
-    lateinit var shaderPreferences : SharedPreferences
+    var shaderPreferences : SharedPreferences
 
     constructor(context: Context){
         shaderPreferences = context.getSharedPreferences(sharedFilename, Context.MODE_PRIVATE)

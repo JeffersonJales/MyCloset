@@ -66,19 +66,12 @@ class MainActivity : AppCompatActivity() {
                 Log.v("FBA", user?.uid.toString())
                 Log.v("FBA", userVerified.toString())
 
-               /*
-                if(userVerified == false) {
-                    user?.sendEmailVerification()
-                    Log.v("FBA", "Email de verificação enviado")
-                }*/
-
                 /// Salvando UID e Email para ser acessado nas proximas activities
                 val userPrefs = UserPreferences(applicationContext)
                 userPrefs.SavePreferences(user?.uid.toString(), login)
 
-                val intent = Intent(this, ListaitemsClosetActivity::class.java).apply{}
+                val intent = Intent(this, CadastrarItemActivity::class.java).apply{}
                 startActivity(intent)
-
             }
             else{
                 Toast.makeText(applicationContext, "SENHA OU LOGIN ERRADO", Toast.LENGTH_LONG).show()

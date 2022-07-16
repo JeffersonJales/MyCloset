@@ -12,16 +12,16 @@
 
         <activity
             android:name=".CreateUserActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".ListaitemsClosetActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".CadastrarItemActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".VisualizaritemActivity"
-            android:exported="false"/>
+            android:exported="true"/>
 
         <activity
             android:name=".MainActivity"

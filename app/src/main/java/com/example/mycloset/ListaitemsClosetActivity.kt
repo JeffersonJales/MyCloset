@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 class ListaitemsClosetActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_item_closet)
     }

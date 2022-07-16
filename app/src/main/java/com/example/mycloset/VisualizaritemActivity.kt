@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 class VisualizaritemActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_visualizar_item_closet)
     }

@@ -51,8 +51,6 @@ class CreateUserActivity : AppCompatActivity() {
     }
 
     fun AbrirCameraUsuario(v: View) {
-
-
         var intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         startActivityForResult(intent, 1)
     }
