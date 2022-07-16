@@ -1,6 +1,8 @@
 package com.example.mycloset
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +13,8 @@ import com.google.android.gms.tasks.Task
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import java.io.ByteArrayOutputStream
+import java.io.ObjectOutputStream
 
 class MainActivity : AppCompatActivity() {
     lateinit var loginEmail : EditText
@@ -32,6 +36,17 @@ class MainActivity : AppCompatActivity() {
             loginEmail.setText(email.toString())
             loginPassword.setText(password.toString())
         }
+
+        /// TENTAR PEGAR EMAIL DO SHARED PREFERENCES
+        else{
+            val userPrefs  = UserPreferences(applicationContext)
+            var userInfo = userPrefs.LoadPreferences()
+
+            if(userInfo.email != ""){
+                loginEmail.setText(userInfo.email)
+            }
+        }
+
     }
 
     fun criarConta(v: View){
@@ -57,8 +72,13 @@ class MainActivity : AppCompatActivity() {
                     Log.v("FBA", "Email de verificação enviado")
                 }*/
 
+                /// Salvando UID e Email para ser acessado nas proximas activities
+                val userPrefs = UserPreferences(applicationContext)
+                userPrefs.SavePreferences(user?.uid.toString(), login)
+
                 val intent = Intent(this, ListaitemsClosetActivity::class.java).apply{}
                 startActivity(intent)
+
             }
             else{
                 Toast.makeText(applicationContext, "SENHA OU LOGIN ERRADO", Toast.LENGTH_LONG).show()
