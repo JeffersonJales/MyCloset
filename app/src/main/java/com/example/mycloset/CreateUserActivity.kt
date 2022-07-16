@@ -26,15 +26,15 @@ class CreateUserActivity : AppCompatActivity() {
     val fbdb = FirebaseDatabase.getInstance()
 
     /// LAYOUT REFERENCE
-    lateinit var editTextEmail : EditText
-    lateinit var editTextPassword : EditText
-    lateinit var editTextCellphone : EditText
-    lateinit var editTextAdress : EditText
-    lateinit var imagePhoto : ImageView
+    lateinit var editTextEmail: EditText
+    lateinit var editTextPassword: EditText
+    lateinit var editTextCellphone: EditText
+    lateinit var editTextAdress: EditText
+    lateinit var imagePhoto: ImageView
 
     /// LAYOUT BUTTONS
-    lateinit var btCarregarGaleria : Button
-    lateinit var btCadastrar : Button
+    lateinit var btCarregarGaleria: Button
+    lateinit var btCadastrar: Button
 
     override fun onCreate(savedInstanceState: Bundle??) {
         super.onCreate(savedInstanceState)
@@ -50,22 +50,28 @@ class CreateUserActivity : AppCompatActivity() {
         btCadastrar = findViewById(R.id.btCadastrarFinalizar)
     }
 
-    fun AbrirCameraUsuario(v: View){
+    fun AbrirCameraUsuario(v: View) {
+
+
         var intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         startActivityForResult(intent, 1)
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if(requestCode == 1 && resultCode == RESULT_OK){
+        if (requestCode == 1 && resultCode == RESULT_OK) {
             fotoCarregada = true
-            var bitmap =   data?.extras?.get("data") as Bitmap
+            var bitmap = data?.extras?.get("data") as Bitmap
             imagePhoto.setImageBitmap(bitmap)
         }
     }
 
-    fun CadastrarUsuario(v: View){
+    fun CadastrarUsuario(v: View) {
+        TentarCadastro()
+    }
 
+    fun TentarCadastro(){
         /// Checar todos os campos foram preenchidos
         if(!(CheckTextNull(editTextCellphone) && CheckTextNull(editTextAdress) &&
         CheckTextNull(editTextEmail) && CheckTextNull(editTextPassword) && fotoCarregada)) {
@@ -122,5 +128,14 @@ class CreateUserActivity : AppCompatActivity() {
 
     fun CheckTextNull(field : EditText) : Boolean{
         return field.text.toString() != ""
+    }
+
+    fun CadastarDebug(v: View){
+        val email = "jeffersonjales@hotmail.com"
+        val passworld = "123456"
+        editTextEmail.setText(email)
+        editTextPassword.setText(passworld)
+        editTextCellphone.setText("+5585997170843")
+        editTextAdress.setText("Rua Vicente Leite, 2360")
     }
 }
