@@ -24,7 +24,7 @@
         android:id="@+id/btListaNovoItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="RegisterClosetItem"
+        android:onClick="CadastrarNovoItem"
         android:text="Novo"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"

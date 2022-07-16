@@ -71,7 +71,7 @@ class ListaitemsClosetActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun RegisterClosetItem(v: View){
+    fun CadastrarNovoItem(v: View){
         val intent = Intent(this, CadastrarItemActivity::class.java).apply{}
         startActivity(intent)
     }

@@ -72,7 +72,7 @@ class CreateUserActivity : AppCompatActivity() {
     fun TentarCadastro(){
         /// Checar todos os campos foram preenchidos
         if(!(CheckTextNull(editTextCellphone) && CheckTextNull(editTextAdress) &&
-                    CheckTextNull(editTextEmail) && CheckTextNull(editTextPassword) && fotoCarregada)) {
+        CheckTextNull(editTextEmail) && CheckTextNull(editTextPassword) && fotoCarregada)) {
             Toast.makeText(
                 applicationContext, "Informações necessárias para cadastro",
                 Toast.LENGTH_LONG
@@ -89,6 +89,7 @@ class CreateUserActivity : AppCompatActivity() {
             if(it.isSuccessful){
                 var user = fba.currentUser
                 var uid = user?.uid.toString()
+
 
                 /// Cadastrar Foto no storage
                 var dados = ByteArrayOutputStream()
