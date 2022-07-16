@@ -9,9 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCloset">
+
         <activity
             android:name=".CreateUserActivity"
             android:exported="false" />
+        <activity
+            android:name=".ListaitemsClosetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CadastrarItemActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VisualizaritemActivity"
+            android:exported="false"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

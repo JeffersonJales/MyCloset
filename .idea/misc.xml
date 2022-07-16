@@ -5,8 +5,12 @@
       <map>
         <entry key="..\:/Users/jeffe/AndroidStudioProjects/MyCloset/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/jeffe/AndroidStudioProjects/MyCloset/app/src/main/res/layout/create_user.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_cadastrar_item_closet.xml" value="0.15020263424518743" />
+        <entry key="app/src/main/res/layout/activity_list_item_closet.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_visualizar_item_closet.xml" value="0.15020263424518743" />
         <entry key="app/src/main/res/layout/create_user.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/scroll_view_item.xml" value="0.15020263424518743" />
       </map>
     </option>
   </component>
