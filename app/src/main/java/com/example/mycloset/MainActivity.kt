@@ -82,6 +82,16 @@ class MainActivity : AppCompatActivity() {
     fun redefinirSenha(v: View)
     {
         val login =  loginEmail.text.toString()
-        fba.sendPasswordResetEmail(login)
+
+        if (login != "")
+        {
+            fba.sendPasswordResetEmail(login)
+            Toast.makeText(applicationContext, "O email para a redefenição da senha foi enviado!", Toast.LENGTH_LONG).show()
+        }
+        else
+        {
+            Toast.makeText(applicationContext, "Por favor, digite um email.", Toast.LENGTH_LONG).show()
+        }
+
     }
 }
