@@ -95,7 +95,7 @@ class VisualizaritemActivity : AppCompatActivity() {
         sendIntent.type = "text/plain"
         startActivity(sendIntent)
 
-    val clipboard: ClipboardManager = getSystemService(Context.CLIPBOzARD_SERVICE) as ClipboardManager
+        val clipboard: ClipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         val clip = ClipData.newPlainText("Código de compartilhar gerador ", itemClosetId)
         clipboard.setPrimaryClip(clip)
 
