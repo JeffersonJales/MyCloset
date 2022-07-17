@@ -3,6 +3,7 @@ package com.example.mycloset
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
@@ -87,7 +88,13 @@ class VisualizaritemActivity : AppCompatActivity() {
     }
 
     fun CompartilharCodigo(v: View){
-        val clipboard: ClipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val sendIntent = Intent()
+        sendIntent.action = Intent.ACTION_SEND
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Código Meu Armário: ${itemClosetId}")
+        sendIntent.type = "text/plain"
+        startActivity(sendIntent)
+
+    val clipboard: ClipboardManager = getSystemService(Context.CLIPBOzARD_SERVICE) as ClipboardManager
         val clip = ClipData.newPlainText("Código de compartilhar gerador ", itemClosetId)
         clipboard.setPrimaryClip(clip)
     }
