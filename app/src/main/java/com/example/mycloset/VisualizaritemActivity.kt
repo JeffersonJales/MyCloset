@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -90,6 +91,8 @@ class VisualizaritemActivity : AppCompatActivity() {
         val clipboard: ClipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         val clip = ClipData.newPlainText("Código de compartilhar gerador ", itemClosetId)
         clipboard.setPrimaryClip(clip)
+
+        Toast.makeText(applicationContext, "Código copiado!", Toast.LENGTH_LONG).show()
     }
 
 }

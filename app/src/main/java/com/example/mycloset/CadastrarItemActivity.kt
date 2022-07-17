@@ -100,8 +100,6 @@ class CadastrarItemActivity : AppCompatActivity() {
 
         if (hasEmptyFields()) return
 
-//        btRegister.isEnabled = false
-
         var name = editTextName.text.toString()
         var purchasePrice = editTextPurchasePrice.text.toString()
         var salePrice = editTextSalePrice.text.toString()
@@ -134,6 +132,7 @@ class CadastrarItemActivity : AppCompatActivity() {
         databaseCloset.child(randomID).child("preco_venda").setValue(salePrice)
 
         var databaseUsers = fbdb.getReference().child("usuarios").child(uid).child("items_closet").child(randomID).setValue(randomID)
+        Toast.makeText(applicationContext, "${name} foi adicionado(a) ao closet!", Toast.LENGTH_LONG).show()
 
         /// Voltar tela com todos os items do closet
 
